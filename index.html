@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0c0d">
+  <meta name="description" content="A fast, unofficial mortar and artillery range calculator for WarDogs.">
+  <title>WarDogs Range Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="calculator" aria-labelledby="app-title">
+      <header class="app-header">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true"><span></span></div>
+          <div>
+            <p class="brand-name">WarDogs</p>
+            <h1 id="app-title">Range Calculator</h1>
+          </div>
+        </div>
+        <button class="clear-button" id="clear-button" type="button">Clear</button>
+      </header>
+
+      <p class="subtitle">Mortar &amp; Artillery Range Calculator</p>
+
+      <div class="coordinate-form">
+        <div class="field-group">
+          <label for="weapon-position">
+            <span class="field-index" aria-hidden="true">01</span>
+            Weapon Position
+          </label>
+          <input
+            id="weapon-position"
+            name="weapon-position"
+            type="text"
+            inputmode="text"
+            placeholder="x102.50, y87.25"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            aria-describedby="weapon-hint weapon-error"
+            aria-invalid="false"
+            autofocus
+          >
+          <div class="field-meta">
+            <span id="weapon-hint">Saved on this device</span>
+            <span class="field-error" id="weapon-error" role="alert" hidden>Invalid weapon coordinates</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="target-position">
+            <span class="field-index" aria-hidden="true">02</span>
+            Target Position
+          </label>
+          <input
+            id="target-position"
+            name="target-position"
+            type="text"
+            inputmode="text"
+            placeholder="x106.50, y90.25"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            aria-describedby="target-hint target-error"
+            aria-invalid="false"
+          >
+          <div class="field-meta">
+            <span id="target-hint">Paste directly from game chat</span>
+            <span class="field-error" id="target-error" role="alert" hidden>Invalid target coordinates</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="result-panel" data-state="waiting" aria-labelledby="range-heading">
+        <div class="result-heading-row">
+          <h2 id="range-heading">Range</h2>
+          <span class="ready-indicator" aria-hidden="true"></span>
+        </div>
+        <output class="range-output" aria-live="polite" aria-atomic="true">
+          <span id="range-value">—</span><span class="range-unit">m</span>
+        </output>
+        <p class="range-status" id="range-status">Awaiting coordinates</p>
+      </section>
+    </section>
+
+    <footer>
+      Unofficial community tool. Not affiliated with the WarDogs developers or publisher.
+    </footer>
+  </main>
+</body>
+</html>
