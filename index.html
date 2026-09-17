@@ -40,14 +40,11 @@
             autocomplete="off"
             autocapitalize="off"
             spellcheck="false"
-            aria-describedby="weapon-hint weapon-error"
+            aria-describedby="weapon-error"
             aria-invalid="false"
             autofocus
           >
-          <div class="field-meta">
-            <span id="weapon-hint">Saved on this device</span>
-            <span class="field-error" id="weapon-error" role="alert" hidden>Invalid weapon coordinates</span>
-          </div>
+          <span class="field-error" id="weapon-error" role="alert" hidden>Invalid weapon coordinates</span>
         </div>
 
         <div class="field-group">
@@ -64,13 +61,10 @@
             autocomplete="off"
             autocapitalize="off"
             spellcheck="false"
-            aria-describedby="target-hint target-error"
+            aria-describedby="target-error"
             aria-invalid="false"
           >
-          <div class="field-meta">
-            <span id="target-hint">Paste directly from game chat</span>
-            <span class="field-error" id="target-error" role="alert" hidden>Invalid target coordinates</span>
-          </div>
+          <span class="field-error" id="target-error" role="alert" hidden>Invalid target coordinates</span>
         </div>
       </div>
 
@@ -84,6 +78,21 @@
         </output>
         <p class="range-status" id="range-status">Awaiting coordinates</p>
       </section>
+    </section>
+
+    <section class="instructions" aria-labelledby="instructions-title">
+      <h2 id="instructions-title">How to copy coordinates</h2>
+      <p class="instructions-intro">Open the map and zoom in on the position you want.</p>
+      <ol>
+        <li><span>Right-click the location.</span></li>
+        <li><span>Click &quot;Mark Coordinates.&quot;</span></li>
+        <li><span>The coordinates automatically appear in the game's chat box.</span></li>
+        <li><span>Press <kbd>Ctrl+A</kbd> to select the coordinate string.</span></li>
+        <li><span>Press <kbd>Ctrl+C</kbd> to copy it.</span></li>
+        <li><span>Press <kbd>Esc</kbd> to cancel out of chat rather than sending the message.</span></li>
+        <li><span><kbd>Alt-Tab</kbd> to the WarDogs Range Calculator and press <kbd>Ctrl+V</kbd> in the appropriate coordinate box.</span></li>
+      </ol>
+      <p class="repeat-note">Then repeat the process for the target position.</p>
     </section>
 
     <footer>

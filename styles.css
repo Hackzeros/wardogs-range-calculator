@@ -52,13 +52,12 @@ button {
   min-height: 100svh;
   margin-inline: auto;
   padding: clamp(32px, 8vh, 88px) 0 24px;
-  display: grid;
-  grid-template-rows: 1fr auto;
+  display: flex;
+  flex-direction: column;
   gap: 28px;
 }
 
 .calculator {
-  align-self: center;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -255,24 +254,12 @@ input[aria-invalid="true"] {
   box-shadow: 0 0 0 4px rgba(238, 142, 130, 0.08);
 }
 
-.field-meta {
-  min-height: 20px;
-  padding: 7px 2px 0;
-  color: var(--subtle);
+.field-error {
+  display: block;
+  margin: 7px 2px 0;
+  color: var(--danger);
   font-size: 0.68rem;
   line-height: 1.35;
-}
-
-.field-error {
-  color: var(--danger);
-}
-
-.field-error:not([hidden]) + * {
-  display: none;
-}
-
-.field-meta:has(.field-error:not([hidden])) > :first-child {
-  display: none;
 }
 
 .result-panel {
@@ -373,6 +360,85 @@ h2 {
   color: var(--muted);
 }
 
+.instructions {
+  padding: 26px 30px 28px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(15, 18, 19, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.instructions h2 {
+  color: #cdd2cf;
+}
+
+.instructions-intro,
+.repeat-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.79rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.instructions-intro {
+  margin-top: 12px;
+}
+
+.instructions ol {
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: instruction-step;
+}
+
+.instructions li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 8px;
+  color: var(--muted);
+  counter-increment: instruction-step;
+  font-size: 0.79rem;
+  line-height: 1.55;
+}
+
+.instructions li + li {
+  margin-top: 7px;
+}
+
+.instructions li::before {
+  content: counter(instruction-step, decimal-leading-zero);
+  padding-top: 0.09em;
+  color: var(--accent);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 2em;
+  margin: 0 0.08em;
+  padding: 0.08em 0.4em 0.14em;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--surface);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  color: #cdd2cf;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.repeat-note {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: #a8afac;
+}
+
 footer {
   max-width: 580px;
   justify-self: center;
@@ -418,6 +484,10 @@ footer {
 
   .range-output {
     min-height: 118px;
+  }
+
+  .instructions {
+    padding: 23px 20px 24px;
   }
 }
 
